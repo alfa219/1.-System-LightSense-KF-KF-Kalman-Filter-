@@ -14,7 +14,7 @@ Proyek ini menggunakan papan mikrokontroler seperti Arduino dan menampilkan data
 
 ## Komponen yang Digunakan
 - **BH1750 Light Sensor**: Untuk mengukur tingkat cahaya di sekitar alat.
-- **Arduino (misalnya Arduino Uno)**: Sebagai mikrokontroler untuk menjalankan program.
+- **Arduino UNO**: Sebagai mikrokontroler untuk menjalankan program.
 - **LCD 16x2 dengan I2C**: Untuk menampilkan data pengukuran.
 - **Wire.h**: Untuk komunikasi I2C antara Arduino dan sensor serta LCD.
 - **BH1750.h**: Library untuk komunikasi dengan sensor BH1750.
