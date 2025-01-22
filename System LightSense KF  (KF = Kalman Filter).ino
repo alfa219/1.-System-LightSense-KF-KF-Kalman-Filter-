@@ -73,7 +73,7 @@ void loop() {
     
     Serial.print(dataCount);
     Serial.print(",");
-    Serial.print((currentMillis / 60000)); // Convert to minutes
+    Serial.print((currentMillis / 60000)); 
     Serial.print(",");
     Serial.print(lux);
     Serial.print(",");
