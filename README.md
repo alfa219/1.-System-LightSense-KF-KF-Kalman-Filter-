@@ -20,6 +20,19 @@ Proyek ini menggunakan papan mikrokontroler seperti Arduino dan menampilkan data
 - **BH1750.h**: Library untuk komunikasi dengan sensor BH1750.
 - **LiquidCrystal_I2C.h**: Library untuk mengontrol LCD berbasis I2C.
 
+## Skema Koneksi
+- **BH1750**:
+  - VCC ke **5V** pada Arduino.
+  - GND ke **GND** pada Arduino.
+  - SDA ke pin **SDA** Arduino.
+  - SCL ke pin **SCL** Arduino.
+  
+- **LCD 16x2 I2C**:
+  - VCC ke **5V** pada Arduino.
+  - GND ke **GND** pada Arduino.
+  - SDA ke pin **SDA** Arduino.
+  - SCL ke pin **SCL** Arduino.
+
 ## Instalasi
 1. Pastikan Anda telah menginstal **Arduino IDE**.
 2. Unduh dan install library berikut melalui **Library Manager**:
@@ -41,5 +54,6 @@ Proyek ini menggunakan papan mikrokontroler seperti Arduino dan menampilkan data
    - **Waktu (dalam menit)**
    - **Cahaya Mentah (lux)**
    - **Cahaya Terfilter (lux)**
+
 
 
