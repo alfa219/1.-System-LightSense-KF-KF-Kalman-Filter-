@@ -2,28 +2,25 @@
 #include <BH1750.h>
 #include <LiquidCrystal_I2C.h>
 
-// Initialize sensor and module
+
 BH1750 lightMeter;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Variables for Kalman Filter
 float processNoise = 1.0;
 float measurementNoise = 1.0;
 float estimatedError = 1.0;
 float kalmanGain = 0.0;
 float currentEstimate = 0.0;
 
-// Variables for data logging
 unsigned long previousMillis = 0;
 const unsigned long interval = 120000;
 int dataCount = 0;
-const int maxData = 30;  // Total 30 data
+const int maxData = 30;  
 
 void setup() {
   Wire.begin();
   Serial.begin(9600);
   
-  // Header for Excel data
   Serial.println("No,Waktu(menit),Cahaya Mentah(lx),Cahaya Terfilter(lx)");
   
   lcd.init();
@@ -59,7 +56,6 @@ void loop() {
   float lux = lightMeter.readLightLevel();
   float filteredLux = applyKalmanFilter(lux);
   
-  // Update LCD
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Mentah: ");
@@ -71,12 +67,10 @@ void loop() {
   lcd.print(filteredLux, 1);
   lcd.print(" lx");
   
-  // Log data every 2 minutes
   if (currentMillis - previousMillis >= interval && dataCount < maxData) {
     previousMillis = currentMillis;
     dataCount++;
     
-    // Format: No,Waktu(menit),Cahaya Mentah,Cahaya Terfilter
     Serial.print(dataCount);
     Serial.print(",");
     Serial.print((currentMillis / 60000)); // Convert to minutes
@@ -86,5 +80,5 @@ void loop() {
     Serial.println(filteredLux);
   }
   
-  delay(1000); // Update LCD every second
+  delay(1000); 
 }
